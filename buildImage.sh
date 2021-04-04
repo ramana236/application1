@@ -11,3 +11,6 @@ echo "Image Successfully pushed to ecr"
 #Create new task definition with new version of buildnumber
 
 sed -i s#202714190885.dkr.ecr.ap-south-1.amazonaws.com/apprepo:20#202714190885.dkr.ecr.ap-south-1.amazonaws.com/apprepo:$version#g taskdef.json
+aws ecs register-task-definition  --cli-input-json  file://taskdef.json --region ap-south-1
+
+echo "New task revision created"
