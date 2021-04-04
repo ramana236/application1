@@ -7,3 +7,7 @@ docker tag apprepo:$version 202714190885.dkr.ecr.ap-south-1.amazonaws.com/apprep
 docker push 202714190885.dkr.ecr.ap-south-1.amazonaws.com/apprepo:$version
 
 echo "Image Successfully pushed to ecr"
+
+#Create new task definition with new version of buildnumber
+
+sed -i s#202714190885.dkr.ecr.ap-south-1.amazonaws.com/apprepo:20#202714190885.dkr.ecr.ap-south-1.amazonaws.com/apprepo:$version#g taskdef.json
